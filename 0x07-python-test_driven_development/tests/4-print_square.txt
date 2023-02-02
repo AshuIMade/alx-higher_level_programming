@@ -1,12 +1,12 @@
-===========================
+============================
 
-How to Use 3-say_my_name.py
+How to Use 4-print_square.py
 
-===========================
+============================
 
 
 
-This modules defines a function ``say_my_name(first_name, last_name="")``.
+This module defines a square-printing function ``print_square(size)``.
 
 
 
@@ -16,7 +16,9 @@ Usage
 
 
 
-``say_my_name(...)`` prints "My name is <first_name> <last_name>".
+Squares are printed using the ``#`` character. The parameter ``size``
+
+represents the height and width of the square.
 
 
 
@@ -24,27 +26,11 @@ Usage
 
 
 
-    >>> say_my_name = __import__('3-say_my_name').say_my_name
+    >>> print_square = __import__('4-print_square').print_square
 
-    >>> say_my_name("Beta", "Scribbles")
+    >>> print_square(1)
 
-    My name is Beta Scribbles
-
-
-
-::
-
-
-
-    >>> say_my_name("Tom Jerry", "Avril")
-
-    My name is Tom Jerry Avril
-
-
-
-The parameter ```last_name``` is optional. If no last name is provided,
-
-an empty string is printed instead.
+    #
 
 
 
@@ -52,21 +38,65 @@ an empty string is printed instead.
 
 
 
-    >>> say_my_name("Beta")
+    >>> print_square(4)
 
-    My name is Beta 
+    ####
+
+    ####
+
+    ####
+
+    ####
 
 
 
-Invalid Names
+::
+
+
+
+    >>> print_square(10)
+
+    ##########
+
+    ##########
+
+    ##########
+
+    ##########
+
+    ##########
+
+    ##########
+
+    ##########
+
+    ##########
+
+    ##########
+
+    ##########
+
+
+
+If ``size`` is zero, the function prints nothing.
+
+
+
+::
+
+
+
+    >>> print_square(0)
+
+
+
+Invalid Sizes
 
 =============
 
 
 
-The parameters ``first_name`` and ``last_name``` must be strings. Otherwise,
-
-a TypeError is raised.
+The parameter ``size`` must be an integer. Otherwise, a TypeError is raised.
 
 
 
@@ -74,11 +104,11 @@ a TypeError is raised.
 
 
 
-    >>> say_my_name(6, "James")
+    >>> print_square("not an int")
 
     Traceback (most recent call last):
 
-    TypeError: first_name must be a string
+    TypeError: size must be an integer
 
 
 
@@ -86,11 +116,11 @@ a TypeError is raised.
 
 
 
-    >>> say_my_name("MeCalister", ["Cavs", "Bakers", "Heat"])
+    >>> print_square(5.5)
 
     Traceback (most recent call last):
 
-    TypeError: last_name must be a string
+    TypeError: size must be an integer
 
 
 
@@ -98,11 +128,15 @@ a TypeError is raised.
 
 
 
-    >>> say_my_name({"LeBron": 6, "Lames": 23}, 7.7)
+    >>> print_square(None)
 
     Traceback (most recent call last):
 
-    TypeError: first_name must be a string
+    TypeError: size must be an integer
+
+
+
+If ``size`` is less than zero, a ValueError is raised.
 
 
 
@@ -110,15 +144,15 @@ a TypeError is raised.
 
 
 
-    >>> say_my_name(None)
+    >>> print_square(-7)
 
     Traceback (most recent call last):
 
-    TypeError: first_name must be a string
+    ValueError: size must be >= 0
 
 
 
-At least one name must be provided.
+Note that type-checking occurs before value-checking.
 
 
 
@@ -126,8 +160,24 @@ At least one name must be provided.
 
 
 
-    >>> say_my_name()
+    >>> print_square(-7.5)
 
     Traceback (most recent call last):
 
-    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+    TypeError: size must be an integer
+
+
+
+At least one argument must be provided.
+
+
+
+::
+
+
+
+    >>> print_square()
+
+    Traceback (most recent call last):
+
+    TypeError: print_square() missing 1 required positional argument: 'size'
