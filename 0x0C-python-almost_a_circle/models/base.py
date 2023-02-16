@@ -52,7 +52,8 @@ class Base:
     def from_json_string(json_string):
         """Return the deserialization of a JSON string.
             Args:
-                json_string (str): A JSON str representation of a list of dicts.            Returns:
+                json_string (str):A JSON str representation of a list of dicts.
+            Returns:
                 If json_string is None or empty - an empty list.
                 Otherwise - the Python list represented by json_string.
         """
@@ -76,7 +77,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """Return a list of classes instantiated from a file of JSON strings."""
+        """Return a list of classes instantiated from a file of JSONstrings."""
         filename = str(cls.__name__) + ".json"
         try:
             with open(filename, "r") as jsonfile:
@@ -118,7 +119,8 @@ class Base:
                 else:
                     fieldnames = ["id", "size", "x", "y"]
                     list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
-                    list_dicts = [dict([k, int(v)] for k, v in d.items()) for d in list_dicts]
+                    list_dicts = [dict([k, int(v)] for k, v in d.items())
+                              for d in list_dicts]
                 return [cls.create(**d) for d in list_dicts]
         except IOError:
             return []
