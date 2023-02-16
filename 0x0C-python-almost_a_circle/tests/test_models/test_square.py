@@ -21,5 +21,5 @@ class TestSquare_instantiation(unittest.TestCase):
         with self.assertRaises(TypeError):
             Square()
 
-if __main__ == "__main__":
+if __name__ == "__main__":
     unittest.main()
