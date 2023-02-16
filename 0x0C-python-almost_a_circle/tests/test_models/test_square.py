@@ -20,3 +20,6 @@ class TestSquare_instantiation(unittest.TestCase):
     def test_no_args(self):
         with self.assertRaises(TypeError):
             Square()
+
+if __main__ == "__main__":
+    unittest.main()

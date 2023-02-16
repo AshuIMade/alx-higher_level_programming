@@ -20,3 +20,6 @@ class TestRectangle_instantiation(unittest.TestCase):
     def test_one_arg(self):
         with self.assertRaises(TypeError):
             Rectangle(1)
+
+if __main__ == "__main__":
+    unittest.main()
